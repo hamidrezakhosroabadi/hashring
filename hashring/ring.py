@@ -27,7 +27,8 @@ class Ring:
 
     def find_route(self, key, count):
         """This method finds the best destination for specefic key."""
-        return [self.__nodes[self.__nodes.iloc[self.__nodes.bisect(key+index)]] for index in range(count)]
+        bisect_index = self.__nodes.bisect(key)
+        return [self.__nodes[self.__nodes.iloc[bisect_index+i]] for i in range(count)]
 
     def __len__(self):
         """This method returns class length."""
